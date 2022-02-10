@@ -3,15 +3,15 @@
 
 {% block content %}
 
-			<h1 class="display-4">Task Register</h1>
-			<p class ="lead font-italic">Add a new task</p>
+			<h1 class="display-4">Task Update</h1>
+			<p class ="lead font-italic">Update existing task</p>
 			<hr class="my-4">
 
 
 <form action="" method="post" autocomplete="off">
 	{% csrf_token %}
-	{{form.name|as_crispy_field}}
-	{{form.description|as_crispy_field}}
+	{{ Task.name }}
+	{{Task.description}}
 	<div class="row">
 		<div class="col-md-2">
 			<button type="submit" class="btn btn-block btn-lg btn-success">Update</button>

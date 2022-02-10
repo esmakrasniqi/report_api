@@ -6,11 +6,12 @@
             <p class ="lead font-italic">Tasks for the day</p>
             <a href="{% url 'today_task' %}"><button type="submit" class="btn btn-secondary">Today's Report</button></a>
             <hr class="my-4">
+            <br><br>
 
 
 <table class="table table-borderless">
     <thead class="border-bottom font-weight-bold">
-        <tr>
+        <tr style="background-color:rgb(245, 245, 245);">
             <td>#</td>
             <td>Name</td>
             <td>Description</td>
@@ -25,21 +26,20 @@
     <tbody>
         {% for Task in task_list %}
         <tr>
-            <td>{{Task.taskId}}</td>
+            <td >{{Task.taskId}}</td>
             <td>{{Task.name}}</td>
             <td>{{Task.description}}</td>
             <td>{{Task.date}}</td>
             <td>
-                <a href="{% url 'task_update' Task.pk  %}" class="btn text-secondary px-0">
-                    <i class="fa fa-edit"></i>
+                <a href="{% url 'task_update' Task.pk  %}" class="btn text-secondary px-0" style="margin-right: 20px;">
+                    <i class="fa fa-edit fa-lg"></i>
                 </a>
-            
-                <form action="{% url 'task_delete' Task.pk  %}" method="post" class="d-inline">
-                    {% csrf_token %}
-                    <button type="submit" class="btn">
-                     
-                            <i class="fa fa-trash-o fa-lg text-danger float-right"></i></a></button>
-                </form>
+                <a href="{% url 'task_delete' Task.pk  %}" class="btn text-secondary px-0 d-inline">
+                    <i class="fa fa-trash-o fa-lg text-danger float-right"></i>
+                </a>
+
+
+
             </td>
 
         </tr>

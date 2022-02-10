@@ -16,12 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from apiApp import views
-
+from apiApp.views import json_list,get_all_tasks,create, get_today_tasks
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('apiApp.urls')),
-
-
+    path('tasks/', include('apiApp.urls')),
+    path('', json_list),
+    path('all/', get_all_tasks, name='home'),
+    path('today/',get_today_tasks, name='today'),
+    path('create/',create, name='create')
+    
 
 ]
 
